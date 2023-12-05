@@ -1,23 +1,26 @@
 public class currencyConverter {
-    private float commission;
-    private float exchangeRate;
+    private double commission;
+    private double exchangeRate;
 
-    public currencyConverter(float commission, float exchangeRate) {
+    public currencyConverter(double commission, double exchangeRate) {
         this.commission = commission;
         this.exchangeRate = exchangeRate;
     }
 
-    private double convertUsdToUah(double amountInUsd) {
-        return amountInUsd * exchangeRate;
+    private double convertUsdToUah(double usdAmount) {
+        return usdAmount * exchangeRate;
     }
 
-    private double calculateCommission(double amount) {
-        return amount * commission / 100;
+    private double calculateCommission(double commissionAmount) {
+        return commissionAmount * commission;
     }
 
-    public double calculateTotalAmount(double amountInUsd) {
-        double amountInUah = convertUsdToUah(amountInUsd);
+    public double calculateTotalAmount(double usdAmount) {
+        double amountInUah = convertUsdToUah(usdAmount);
         double commissionAmount = calculateCommission(amountInUah);
         return amountInUah + commissionAmount;
     }
-}
+
+    }
+
+
