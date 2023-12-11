@@ -7,6 +7,15 @@ public class currencyConverter {
         this.exchangeRate = exchangeRate;
     }
 
+    public double getCommission() {
+        return commission;
+    }
+
+
+    public double getExchangeRate() {
+        return exchangeRate;
+    }
+
     private double convertUsdToUah(double usdAmount) {
         return usdAmount * exchangeRate;
     }

@@ -7,10 +7,11 @@ public class Main {
         double usdAmount = scanner.nextDouble();
 
 
-        double commissionRate = 0.01;
-        double exchangeRate = 36.55;
+        currencyConverter converter = new currencyConverter(0.01, 36.55);
 
-        currencyConverter converter = new currencyConverter(commissionRate, exchangeRate);
+        double commission = converter.getCommission();
+        double exchangeRate = converter.getExchangeRate();
+
         double total = converter.calculateTotalAmount(usdAmount);
 
         System.out.println("You should pay in UAH: " + total);
