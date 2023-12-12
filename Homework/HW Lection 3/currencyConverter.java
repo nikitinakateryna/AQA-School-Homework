@@ -27,7 +27,7 @@ public class currencyConverter {
     public double calculateTotalAmount(double usdAmount) {
         double amountInUah = convertUsdToUah(usdAmount);
         double commissionAmount = calculateCommission(amountInUah);
-        return amountInUah + commissionAmount;
+        return amountInUah - commissionAmount;
     }
 
     }
