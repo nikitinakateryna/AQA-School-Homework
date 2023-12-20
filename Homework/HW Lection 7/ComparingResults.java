@@ -4,14 +4,12 @@ import java.util.ArrayList;
 
 public class ComparingResults {
     public static void main(String[] args){
-        JsonResponse<Data> response = new JsonResponse<>();
+
         List<Data> dataList = new ArrayList<>();
         dataList.add(new Data("Vadym", 18, "Kyiv"));
-        dataList.add(new Data("Kate", 28, "Lviv"));
+        dataList.add(new Data("Kate", 98, "Lviv"));
 
-        response.setData(dataList);
 
-        List<Data> newData = response.getData();
         Data data1 = dataList.get(0);
         Data data2 = dataList.get(1);
 
