@@ -34,15 +34,18 @@ public class Exсeption {
         File myFile = new File(path);
         Scanner scanner = new Scanner(myFile);
 
-        String line = scanner.nextLine();
+        String firstLine = scanner.nextLine();
 
-        if (line.matches("\\d+")) {
+        if (firstLine.matches("\\d+")) {
             throw new MyException("File shouldn't contain numbers.");
         }
 
         else {
+            System.out.println(firstLine);
+
 
             while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
                 System.out.println(line);
 
             }
