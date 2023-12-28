@@ -1,8 +1,9 @@
+import java.sql.SQLOutput;
 import java.util.stream.Stream;
 
 public class Fibonacci {
     public static void main(String[] args) {
-        fibCalculate();
+        System.out.println(fibCalculate());
     }
 
     public static int fibCalculate() {
