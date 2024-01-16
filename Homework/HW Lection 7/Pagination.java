@@ -1,5 +1,14 @@
 public class Pagination {
     private int limit;
+    private int offset;
+    private int total;
+
+    public Pagination(int limit, int offset, int total) {
+        this.limit = limit;
+        this.offset = offset;
+        this.total = total;
+    }
+
 
     public int getLimit() {
         return limit;
@@ -9,7 +18,6 @@ public class Pagination {
         this.limit = limit;
     }
 
-    private int offset;
 
     public int getOffset() {
         return offset;
@@ -19,7 +27,6 @@ public class Pagination {
         this.offset = offset;
     }
 
-    private int total;
 
     public int getTotal() {
         return total;
@@ -29,9 +36,5 @@ public class Pagination {
         this.total = total;
     }
 
-    public Pagination(int limit, int offset, int total) {
-        this.limit = limit;
-        this.offset = offset;
-        this.total = total;
-    }
 }
+

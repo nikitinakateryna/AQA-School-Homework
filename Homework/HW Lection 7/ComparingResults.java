@@ -5,16 +5,16 @@ import java.util.ArrayList;
 public class ComparingResults {
     public static void main(String[] args){
 
-        List<Data> dataList = new ArrayList<>();
-        dataList.add(new Data("Vadym", 18, "Kyiv"));
-        dataList.add(new Data("Kate", 98, "Lviv"));
+        List<User> dataList = new ArrayList<>();
+        dataList.add(new User("Vadym", 18, "Kyiv"));
+        dataList.add(new User("Kate", 18, "Lviv"));
 
 
-        Data data1 = dataList.get(0);
-        Data data2 = dataList.get(1);
+        User data1 = dataList.get(0);
+        User data2 = dataList.get(1);
 
 
-        Comparator<Data> ageComparator = Comparator.comparing(Data::getAge);
+        Comparator<User> ageComparator = Comparator.comparing(User::getAge);
         int result = ageComparator.compare(data1, data2);
 
         if (result < 0) {

@@ -1,4 +1,15 @@
-public class Data {
+public class User {
+
+    private String name;
+    private int age;
+    private String city;
+
+    public User(String name, int age, String city) {
+        this.name = name;
+        this.age = age;
+        this.city = city;
+    }
+
     public String getName() {
         return name;
     }
@@ -7,8 +18,7 @@ public class Data {
         this.name = name;
     }
 
-    private String name;
-    private int age;
+
 
     public int getAge() {
         return age;
@@ -18,7 +28,6 @@ public class Data {
         this.age = age;
     }
 
-    private String city;
 
     public String getCity() {
         return city;
@@ -28,10 +37,6 @@ public class Data {
         this.city = city;
     }
 
-    public Data(String name, int age, String city) {
-        this.name = name;
-        this.age = age;
-        this.city = city;
-    }
+
 
 }

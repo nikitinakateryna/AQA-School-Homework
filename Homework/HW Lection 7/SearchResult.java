@@ -1,9 +1,8 @@
 import java.util.List;
 
-public class JsonResponse<T> {
-
-    public JsonResponse() {
-    }
+public class SearchResult<T> {
+    private List<T> data;
+    private Pagination pagination;
 
     public void setData(List<T> data) {
         this.data = data;
@@ -12,14 +11,11 @@ public class JsonResponse<T> {
     public List<T> getData () {
         return data;
     }
-    private List<T> data;
 
-    public void setPagination(T pagination) {
+    public void setPagination(Pagination pagination) {
         this.pagination = pagination;
     }
-    private T pagination;
-
-    public JsonResponse(List<T> data, T pagination) {
+    public SearchResult(List<T> data, Pagination pagination) {
         this.data = data;
         this.pagination = pagination;
     }

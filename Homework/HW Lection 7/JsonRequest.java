@@ -1,17 +1,17 @@
 public class JsonRequest <T> {
-    private T filter;
-    private T pagination;
-    private T sorting;
+    private Filter filter;
+    private Pagination pagination;
+    private Sorting sorting;
 
-    public void setFilter(T filter){
+    public void setFilter(Filter filter){
         this.filter = filter;
     }
 
-    public void setPagination(T pagination){
+    public void setPagination(Pagination pagination){
         this.pagination = pagination;
     }
 
-    public void setSorting(T sorting){
+    public void setSorting(Sorting sorting){
         this.sorting = sorting;
     }
 
@@ -20,6 +20,12 @@ public class JsonRequest <T> {
 
 class Filter {
     private int age;
+    private String city;
+
+    public Filter(int age, String city) {
+        this.age = age;
+        this.city = city;
+    }
 
     public int getAge() {
         return age;
@@ -37,15 +43,12 @@ class Filter {
         this.city = city;
     }
 
-    private String city;
 
-    public Filter(int age, String city) {
-        this.age = age;
-        this.city = city;
-    }
 }
 
 class Sorting {
+
+    private String registration;
     public Sorting(String registration) {
         this.registration = registration;
     }
@@ -58,5 +61,4 @@ class Sorting {
         this.registration = registration;
     }
 
-    private String registration;
 }
