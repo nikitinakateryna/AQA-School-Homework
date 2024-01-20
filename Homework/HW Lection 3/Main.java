@@ -14,7 +14,7 @@ public class Main {
 
         double total = converter.calculateTotalAmount(usdAmount);
 
-        System.out.println("You should pay in UAH: " + total);
+        System.out.println("You need to pay in UAH: " + total);
     }
 
 
