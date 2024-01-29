@@ -42,7 +42,6 @@ public class MainPage {
 
     public void goToBookPage() {
         bookImage.shouldBe(visible).click();
-        refresh();
         bookPage.shouldBe(visible);
 
     }
