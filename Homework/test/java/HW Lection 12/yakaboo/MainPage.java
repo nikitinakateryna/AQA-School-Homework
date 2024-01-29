@@ -1,50 +1,52 @@
 package yakaboo;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.attributeMatching;
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.*;
 
 
 public class MainPage {
     private final SelenideElement searchInput = $("input");
     private final SelenideElement searchButton = $("button.ui-btn-primary");
-    private final SelenideElement bookImage = $("img.product-image__thumb");
-    private final SelenideElement newPopup = $(".cl-widget-f8519v8519");
-    private final SelenideElement closePopup = $(".cl-dialog-close-icon");
+    private final SelenideElement bookImage = $$(".product-image category-card-mode").first();
+    private final SelenideElement bookPage = $(".product__container");
 
 
-    public void mainPageIsOpened() {
+
+    public void open() {
         String pageUrl = "https://www.yakaboo.ua/";
         Selenide.open(pageUrl);
-        searchInput.shouldBe(Condition.visible);
+        disablePopUp();
+
+    }
+
+    public void mainPageIsOpened(){
+        searchInput.shouldBe(visible);
+    }
+
+    public void disablePopUp(){
+        Selenide.localStorage().setItem("f.fv.view","{'f8519v8519':'2024-01-29T17:05:04.365Z'}");
+        Selenide.localStorage().setItem("f.fv.close","{'f8519v8519':1}");
+
     }
 
     public void searchBook(String bookName) {
-        closePopup();
         searchInput.val(bookName);
-        closePopup();
-        searchButton.click();
-        closePopup();
-        bookImage.shouldHave(attributeMatching("alt", bookName));
+        searchButton.shouldBe(visible).click();
+        bookImage.shouldBe(visible).shouldHave(attributeMatching("alt", bookName));
 
     }
 
     public void goToBookPage() {
-        closePopup();
-        bookImage.click();
-        Selenide.refresh();
-        closePopup();
+        bookImage.shouldBe(visible).click();
+        refresh();
+        bookPage.shouldBe(visible);
 
     }
-    public void closePopup() { // на сайті постійно вилазив поп ап в різних місцях,
-        // тому це метод який його закриває, я не знайшла поки іншого способу
-        if (newPopup.is(Condition.visible)) {
-            closePopup.click();
-        }
-    }
+
 
 }
 

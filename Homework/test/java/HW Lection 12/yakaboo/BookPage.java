@@ -1,14 +1,17 @@
 package yakaboo;
 
 import com.codeborne.selenide.SelenideElement;
-
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+
 
 public class BookPage {
     private final SelenideElement paperBook = $(".paper");
     private final SelenideElement electronicBook = $(".digital");
     private final SelenideElement selectedBookPrice = $(".ui-price-display.simple.selected .ui-price-display__main span");
     private final SelenideElement otherPrice = $(".ui-price-display.simple .ui-price-display__main span");
+
+
     public void paperOrElectronic(){
 
         var isPaperBookAvailable = paperBook.isDisplayed();
