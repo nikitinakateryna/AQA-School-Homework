@@ -11,7 +11,6 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class OrderTest {
 
-    public static String url;
 
 
     @BeforeTest
@@ -19,56 +18,28 @@ public class OrderTest {
         BrowserConfig.setBrowser();
     }
 
-    @Test (priority = 1)
-    public static void login() {
+    @Test
+    public static void mainTest() {
         LoginPage.openPage();
         LoginPage.assertLoginPageIsOpened();
         LoginPage.login("standard_user", "secret_sauce");
         LoginPage.assertLogin();
-        url = WebDriverRunner.getWebDriver().getCurrentUrl();
 
-    }
-    @Test (priority = 2)
-    public static void selectProducts() {
-        open(url);
-        ProductsPage.addProductsToCart();
+        ProductsPage.addProductsToCart("$7.99", "$9.99");
         ProductsPage.assertIsAdded();
         ProductsPage.goToCart();
         ProductsPage.assertGoToCart();
-        url = WebDriverRunner.getWebDriver().getCurrentUrl();
 
-    }
-
-    @Test (priority = 3)
-    public static void checkCart() {
-        open(url);
-        CartPage.assertTrueProductsAdded();
+        CartPage.assertTrueProductsAdded("$7.99", "$9.99");
         CartPage.assertCheckout();
-        url = WebDriverRunner.getWebDriver().getCurrentUrl();
 
-    }
 
-    @Test (priority = 4)
-    public static void checkoutFirstStep(){
-        open(url);
         UserInfoPage.setValues("TEST", "TEST", "123");
         UserInfoPage.isOpened();
-        url = WebDriverRunner.getWebDriver().getCurrentUrl();
 
-    }
-
-    @Test (priority = 5)
-    public static void checkoutSecondStep(){
-        open(url);
         CheckoutPage.calculateTaxPercent();
         CheckoutPage.goToFinal();
-        url = WebDriverRunner.getWebDriver().getCurrentUrl();
 
-    }
-
-    @Test (priority = 6)
-    public static void completeOrder(){
-        open(url);
         FinalStepPage.aseertTextIsCorrect();
     }
 

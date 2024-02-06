@@ -14,15 +14,15 @@ public class CartPage {
   public static SelenideElement checkoutButton = $("[data-test=\"checkout\"]");
 
 
- public static void assertTrueProductsAdded(){
+ public static void assertTrueProductsAdded(String firstPrice, String secondPrice){
    ElementsCollection items = $$(".inventory_item_price");
 
      for (SelenideElement item : items) {
          String itemPrice = item.getText();
-         if (itemPrice.equals("$7.99")) {
-             Assert.assertEquals(itemPrice, "$7.99");
-         } else if (itemPrice.equals("$9.99")) {
-             Assert.assertEquals(itemPrice, "$9.99");
+         if (itemPrice.equals(firstPrice)) {
+             Assert.assertEquals(itemPrice, firstPrice);
+         } else if (itemPrice.equals(secondPrice)) {
+             Assert.assertEquals(itemPrice, secondPrice);
          }
      }
 
